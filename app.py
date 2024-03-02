@@ -11,6 +11,7 @@ socketio = SocketIO(app)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
+index=0
 cap = cv2.VideoCapture(index, cv2.CAP_V4L)
 last_eye_detected_time = time.time()
 cheating_count = 0
