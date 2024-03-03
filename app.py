@@ -44,8 +44,17 @@ cap = cv2.VideoCapture(0)
 last_eye_detected_time = time.time()
 cheating_count = 0
 
+@app.route('/')
+def main():
+    return render_template('index.html')
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/corp')
+def corp():
+    return render_template('index2.html')
+
+
+@app.route('/mal', methods=['GET', 'POST'])
 def malprac():
     if request.method == 'POST':
         file = request.files['file']
@@ -63,12 +72,12 @@ def malprac():
 
             return render_template('result.html', image_base64=image_base64)
 
-    return render_template('index.html')
+    return render_template('index_m.html')
 
 
 @app.route('/proctor')
 def index():
-    return render_template('index1.html')
+    return render_template('index_p.html')
 
 def detect_cheating(frame):
     global last_eye_detected_time, cheating_count
